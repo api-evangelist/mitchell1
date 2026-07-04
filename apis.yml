@@ -1,0 +1,126 @@
+aid: mitchell1
+url: https://raw.githubusercontent.com/api-evangelist/mitchell1/refs/heads/main/apis.yml
+name: Mitchell 1
+kind: company
+description: >-
+  Mitchell 1 is a division of Snap-on Incorporated providing repair
+  information (ProDemand, TruckSeries) and shop management software (Manager
+  SE, SocialCRM) to independent auto repair shops. Mitchell 1 is a legacy
+  enterprise software provider, not an API-first company - it has no public,
+  self-serve REST API reference. It does operate a gated Web-Intent / Data API
+  integration program for approved third-party partners (shop management
+  systems, CRM, parts and marketing platforms) to embed or link into ProDemand
+  labor, parts, and maintenance data, fronted by a token-based (TAPE) auth flow
+  and an Intent Registry discovery service. Access requires submitting an
+  integration request, a Mitchell 1 review (roughly two weeks), and a signed
+  partner agreement; no public API reference, OpenAPI document, or SDK is
+  published. Note - Mitchell 1 (mitchell1.com, Snap-on) is a distinct company
+  from Mitchell International (mitchell.com, part of Enlyte) - the two share a
+  historical "Mitchell" lineage but are separately owned; Mitchell
+  International's public developer.mitchell.com RepairCenter API belongs to
+  the other company and is out of scope here.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Automotive
+- Repair Information
+- Shop Management
+- Labor Guide
+- VIN Decode
+- Snap-on
+- Partner API
+- Gated
+created: '2026-07-04'
+modified: '2026-07-04'
+specificationVersion: '0.19'
+apis:
+- aid: mitchell1:mitchell1-intent-registry-discovery-api
+  name: Mitchell 1 Intent Registry Discovery API
+  tags:
+  - Discovery
+  - Web-Intent
+  - Integration
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://testintents.mitchell1.com/Help/Api
+  baseURL: https://testintents.mitchell1.com/api
+  properties:
+  - url: https://mitchell1.com/resources/api-request/
+    type: Documentation
+  - url: https://testintents.mitchell1.com/Help/Api
+    type: APIReference
+  description: Discovery endpoint (GET api/service/v1/discovery) that a
+    partner application calls on startup to resolve the current RESTful URI
+    patterns for the Web-Intent resources it needs, rather than hardcoding
+    them. Confirmed on Mitchell 1's public sandbox API help index; production
+    access requires an approved integration partner account.
+- aid: mitchell1:mitchell1-intent-resolve-api
+  name: Mitchell 1 Intent Resolve API
+  tags:
+  - Intents
+  - Web-Intent
+  - Authentication
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://testintents.mitchell1.com/Help/Api
+  baseURL: https://testintents.mitchell1.com/api
+  properties:
+  - url: https://mitchell1.com/resources/api-request/
+    type: Documentation
+  - url: https://testintents.mitchell1.com/Help/Api
+    type: APIReference
+  description: Resolve endpoint (POST api/intent/v1/resolve) used to securely
+    look up where a specific Web-Intent should be routed, as part of the TAPE
+    (transfer application public extension) token flow that hands a partner
+    application a token it presents to the Secure Intents website to consume
+    ProDemand labor, parts, fluids, and maintenance intents.
+- aid: mitchell1:mitchell1-integration-script-services-api
+  name: Mitchell 1 Integration Script Services API
+  tags:
+  - Scripts
+  - Integration Client
+  - Integration Server
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://testintents.mitchell1.com/Help/Api
+  baseURL: https://testintents.mitchell1.com/api
+  properties:
+  - url: https://testintents.mitchell1.com/Help/Api
+    type: APIReference
+  description: Two GET endpoints (api/script/v1/integrationclient and
+    api/script/v1/integrationserver) listed in the sandbox Intent Registry
+    index with no published documentation beyond their names; they appear to
+    serve client- and server-side integration script assets for embedding
+    Mitchell 1 Web-Intent flows inside a partner shop management system.
+    Listed here for completeness, not confirmed behavior.
+- aid: mitchell1:mitchell1-prodemand-labor-parts-data-api
+  name: Mitchell 1 ProDemand Labor & Parts Data API
+  tags:
+  - Labor Guide
+  - Parts
+  - Maintenance
+  - Modeled
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://mitchell1.com/resources/api-request/
+  properties:
+  - url: https://mitchell1.com/resources/api-request/
+    type: Documentation
+  - url: https://mitchell1.com/resources/api-request/attachment/api-integration/
+    type: Documentation
+  description: Honestly-modeled entry, not a confirmed public spec. Mitchell 1's
+    API Request program advertises a "Data API for labor times" for both
+    light-duty automotive (ProDemand) and medium/heavy-duty trucks
+    (TruckSeries), alongside Website UI Integration (intents for labor,
+    parts, fluids, and maintenance data) and a full Website Launcher
+    pass-through into ProDemand keyed by VIN, ACES ID, or year/make/model.
+    No base URL, request/response schema, or public API reference is
+    published for this data API; it is disclosed only in partner
+    integration materials after an approved application.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/mitchell-1/
+- type: Website
+  url: https://mitchell1.com/
+- type: Documentation
+  url: https://mitchell1.com/resources/api-request/
+- type: Plans
+  url: plans/mitchell1-plans-pricing.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

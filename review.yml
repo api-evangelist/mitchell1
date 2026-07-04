@@ -1,0 +1,92 @@
+aid: mitchell1
+name: Mitchell 1
+review:
+  question: Does Mitchell 1 expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-04'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Mitchell 1 has no public API reference
+    at all - its Web-Intent / Data API integration surface is disclosed only
+    to approved partners after an application and signed agreement. The
+    endpoints that are publicly visible (on a sandbox Help index) are plain
+    REST request/response over HTTPS; there is no server-push transport
+    (WebSocket or SSE) documented anywhere for Mitchell 1's own API, so there
+    is nothing in scope to model as AsyncAPI.
+findings:
+  summary: |
+    Mitchell 1 (mitchell1.com, a division of Snap-on Incorporated) does not
+    publish a documented public WebSocket API, and it does not publish a
+    public, self-serve REST API reference at all. Mitchell 1 is a legacy
+    enterprise repair-information and shop-management software provider
+    (ProDemand, TruckSeries, Manager SE, SocialCRM), not an API-first
+    company. It operates a gated "Web-Intent" / Data API integration
+    program: third-party shop management systems, CRM platforms, and parts
+    catalogs can apply for integration, wait roughly two weeks for review,
+    and sign a partner agreement before receiving developer portal access.
+    A public sandbox Help index at testintents.mitchell1.com/Help/Api lists a
+    small number of plain REST endpoints (discovery, intent resolve, and two
+    integration script endpoints) with minimal documentation and no
+    authentication details, request/response schemas, or SLAs. No
+    WebSocket (ws:// or wss://) endpoint is documented anywhere in Mitchell
+    1's public materials.
+  ownershipNote: |
+    Mitchell 1 (mitchell1.com) is a Snap-on Incorporated division. It is a
+    separate company from Mitchell International (mitchell.com, part of the
+    Enlyte family of businesses), which operates its own public developer
+    portal at developer.mitchell.com for a REST/OData "RepairCenter"
+    Transactional API used in collision claims and estimating. The two
+    companies share a historical "Mitchell" name and lineage but are
+    distinct, separately owned entities today. This review and the
+    apis.yml in this repository cover Mitchell 1 (Snap-on) only; Mitchell
+    International's RepairCenter API is out of scope.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://testintents.mitchell1.com/api
+      documented: true
+      note: Sandbox Help index only; no production base URL, auth scheme, or schema is publicly documented. Full access requires an approved partner agreement.
+    - protocol: Website Launcher / Pass-Through
+      scheme: https
+      documented: true
+      note: Non-API integration mode - a partner app passes a VIN, ACES ID, or year/make/model into a ProDemand URL and the user works inside the full ProDemand UI. Not a data API.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in Mitchell 1's public API request materials or sandbox Help index as of the review date.
+  endpointsConfirmedRest:
+    - GET  https://testintents.mitchell1.com/api/service/v1/discovery
+    - POST https://testintents.mitchell1.com/api/intent/v1/resolve
+    - GET  https://testintents.mitchell1.com/api/script/v1/integrationclient
+    - GET  https://testintents.mitchell1.com/api/script/v1/integrationserver
+  endpointsModeledNotConfirmed:
+    - description: "Data API for labor times (light-duty ProDemand and medium/heavy-duty TruckSeries)"
+      note: Advertised by name in Mitchell 1's API Request program materials; no base URL, path, or schema is publicly published. Disclosed to approved partners only.
+sources:
+  - url: https://mitchell1.com/resources/api-request/
+    type: Documentation
+    note: Public description of the Web-Intent / Data API integration program, application process, and TAPE token flow. No API reference or schema included.
+  - url: https://mitchell1.com/resources/api-request/attachment/api-integration/
+    type: Documentation
+    note: Overview of Website Launcher, Website UI Integration (intents), and Data API options for light-duty and truck.
+  - url: https://testintents.mitchell1.com/Help/Api
+    type: APIReference
+    note: Sandbox Intent Registry API help index listing discovery, resolve, and script endpoints. No auth or schema detail.
+  - url: https://mitchell1.com/about-mitchell1/
+    type: Documentation
+    note: Confirms Mitchell 1 is a division of Snap-on Incorporated; lists ProDemand, Manager SE, TruckSeries, SocialCRM.
+  - url: https://developer.mitchell.com/
+    type: Documentation
+    note: Mitchell International's separate public RepairCenter developer portal - a different, non-Snap-on company; consulted only to confirm it is out of scope for Mitchell 1.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists, and Mitchell 1 does not publish a
+    public API reference of any kind - its own confirmed endpoints are
+    limited to a sandbox discovery/resolve/script index for a gated partner
+    program. No AsyncAPI document was created because there is no
+    server-push transport to model, and no OpenAPI, Postman, or Open
+    Collection artifact was created because no public schema exists to
+    source it from honestly.

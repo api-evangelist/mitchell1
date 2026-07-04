@@ -1,0 +1,132 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Mitchell 1
+providerId: mitchell1
+created: '2026-07-04'
+modified: '2026-07-04'
+reconciled: false
+tags:
+- Automotive
+- Repair Information
+- Shop Management
+- Subscription
+- Plans
+description: >-
+  Mitchell 1 sells its products as per-shop software subscriptions, not as
+  metered API plans. There is no published price list for the Web-Intent /
+  Data API integration program itself - it is bundled into a signed partner
+  agreement negotiated after an approved integration application, and its
+  cost (if any) is not disclosed publicly. The entries below are the
+  publicly advertised end-customer subscription products a partner
+  integration ultimately connects to.
+notes: >-
+  Prices shown are new-customer list prices observed on Mitchell 1's public
+  ordering site and marketing pages; renewing subscribers are directed to
+  call (888) 724-6742 for current rates, and promotional/lease terms vary.
+  No numeric rate limits, quotas, or per-call fees are published for the
+  partner API layer.
+sources:
+- https://mitchell1.com/prodemand/
+- https://mitchell1.com/products/order-prodemand/
+- https://buymitchell1.net/mm5/merchant.mvc?Screen=CTGY&Store_Code=M1&Category_Code=ONLINE
+- https://www.m1repair.com/mitchell1managerse/
+- https://mitchell1.com/resources/api-request/
+plans:
+- id: mitchell1-prodemand
+  name: ProDemand
+  type: paid
+  description: >-
+    OEM repair information, estimating, and real-world repair knowledge for
+    light-duty automotive, sold as a standalone subscription or bundled with
+    Manager SE. Advertised new-customer list price is approximately
+    $199.99/month, commonly sold on 12+ month terms with promotional free
+    months.
+  entries:
+  - label: ProDemand Monthly Subscription
+    name: prodemand_monthly
+    type: flat
+    metric: seat
+    limit: 1
+    timeFrame: month
+    geo: US
+    unit: 1
+    price: approximately $199.99/month (new customer list price)
+    userMultiplied: false
+  elements:
+  - name: OEM Repair Information
+  - name: Labor Guide and Estimating
+  - name: Real-World Fixes (1Search Plus)
+  - name: ProDemand Truck Add-On
+- id: mitchell1-manager-se
+  name: Manager SE
+  type: paid
+  description: >-
+    Shop management software tracking activity from estimate to invoice,
+    typically bundled with ProDemand and add-ons (digital inspection,
+    texting, CRM). Advertised as available for less than $500/month
+    depending on modules and workstation count.
+  entries:
+  - label: Manager SE Bundle
+    name: manager_se_bundle
+    type: flat
+    metric: shop
+    limit: 1
+    timeFrame: month
+    geo: US
+    unit: 1
+    price: under $500/month (varies by modules and workstations)
+    userMultiplied: true
+  elements:
+  - name: Shop Management System
+  - name: Digital Vehicle Inspection
+  - name: Customer Texting
+  - name: PartsTech Multi-Vendor Catalog Integration
+- id: mitchell1-truckseries
+  name: TruckSeries
+  type: paid
+  description: >-
+    Single-login, all-makes repair information for Class 4-8 commercial
+    trucks, sold as its own subscription tier; public per-month pricing is
+    not consistently advertised and is typically quoted directly.
+  entries:
+  - label: TruckSeries Subscription
+    name: truckseries_subscription
+    type: flat
+    metric: seat
+    limit: 1
+    timeFrame: month
+    geo: US
+    unit: 1
+    price: quoted directly (not consistently published)
+    userMultiplied: false
+  elements:
+  - name: Medium/Heavy-Duty Truck Repair Data
+  - name: Trouble Code Procedures
+- id: mitchell1-partner-integration
+  name: Web-Intent / Data API Partner Program
+  type: enterprise
+  description: >-
+    Gated integration track for third-party shop management systems, CRM,
+    and parts/marketing platforms to embed Mitchell 1 Web-Intent or Data API
+    access. Requires an application, a roughly two-week Mitchell 1 review,
+    and a signed partner agreement; no public pricing, rate card, or
+    self-serve signup exists.
+  entries:
+  - label: Partner Integration Agreement
+    name: partner_agreement
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: not published (negotiated per partner agreement)
+    userMultiplied: false
+  elements:
+  - name: Web-Intent Registry Access
+  - name: ProDemand Labor and Parts Data API
+  - name: Website Launcher Pass-Through
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
