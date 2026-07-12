@@ -113,6 +113,8 @@ apis:
     published for this data API; it is disclosed only in partner
     integration materials after an approved application.
 common:
+- type: DomainSecurity
+  url: security/mitchell1-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/mitchell-1/
 - type: Website
@@ -121,6 +123,8 @@ common:
   url: https://mitchell1.com/resources/api-request/
 - type: Plans
   url: plans/mitchell1-plans-pricing.yml
+- url: https://mitchell1.com/feed/
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
