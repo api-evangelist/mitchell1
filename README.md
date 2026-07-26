@@ -72,11 +72,6 @@ Two GET endpoints (`api/script/v1/integrationclient` and `api/script/v1/integrat
 
 - [API Reference](https://testintents.mitchell1.com/Help/Api)
 
-### Mitchell 1 ProDemand Labor & Parts Data API
-
-Honestly-modeled entry, not a confirmed public spec. Mitchell 1's API Request program advertises a "Data API for labor times" for both light-duty automotive (ProDemand) and medium/heavy-duty trucks (TruckSeries), alongside Website UI Integration (intents for labor, parts, fluids, and maintenance data) and a full Website Launcher pass-through into ProDemand keyed by VIN, ACES ID, or year/make/model. No base URL, request/response schema, or public API reference is published for this data API; it is disclosed only in partner integration materials after an approved application.
-
-- **Human URL:** [https://mitchell1.com/resources/api-request/](https://mitchell1.com/resources/api-request/)
 
 #### Properties
 
