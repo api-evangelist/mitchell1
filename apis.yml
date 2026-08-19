@@ -43,7 +43,7 @@ tags:
   - Gated
 created: '2026-07-04'
 modified: '2026-07-25'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: mitchell1:mitchell1-intent-registry-discovery-api
     name: Mitchell 1 Intent Registry Discovery API
