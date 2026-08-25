@@ -3,9 +3,12 @@
   "feeds": [
     {
       "source": "https://mitchell1.com/feed/",
-      "error": "URLError"
+      "feed_url": "https://mitchell1.com/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
     }
   ],
-  "fetched": "2026-08-06T14:08:46Z",
+  "fetched": "2026-08-22T20:20:02Z",
   "post_count": 5
 }
