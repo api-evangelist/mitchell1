@@ -19,6 +19,17 @@ description: >-
   historical "Mitchell" lineage but are separately owned; Mitchell
   International's public developer.mitchell.com RepairCenter API belongs to
   the other company and is out of scope here.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: unknown
