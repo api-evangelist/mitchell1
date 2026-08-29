@@ -1,5 +1,8 @@
 aid: mitchell1
 url: https://raw.githubusercontent.com/api-evangelist/mitchell1/refs/heads/main/apis.yml
+x-api-posture: no-product-api
+x-api-posture-basis: observed
+x-api-posture-note: "Access requires submitting an integration request, a Mitchell 1 review (roughly two weeks), and a signed partner agreement; no public API reference, OpenAPI document, or SDK is published."
 name: Mitchell 1
 kind: company
 description: >-
